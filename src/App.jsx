@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { use, useRef, useState } from 'react'
+import DicTemplate from './components/DicTemplate'
+import DicList from './components/DicList'
+import DicListItem from './components/DicListItem'
+import DicInsert from './components/DicInsert'
 
 function App() {
-  const [count, setCount] = useState(0)
+   const [pokemons, setPokemons] = useState([
+      { id: 1, name: '이상해씨', img: './img/이상해씨.png' },
+      { id: 2, name: '미라이돈', img: './img/미라이돈.png' },
+   ])
+   const nextId = useRef(3)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+   const insertPoke = (name) => {
+      const pokeInfo = {
+         id: nextId.current,
+         name,
+         img: `./img/${name}.png`,
+      }
+      setPokemons(pokemons.concat(insertPoke))
+      nextId.current += 1
+   }
+   console.log(pokemons)
+
+   return (
+      <DicTemplate>
+         <DicInsert insertPoke={insertPoke}></DicInsert>
+         <DicList></DicList>
+      </DicTemplate>
+   )
 }
 
 export default App
