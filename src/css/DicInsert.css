@@ -1,0 +1,52 @@
+.DicInsertForm {
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   margin: 30px 0 0;
+}
+input {
+   text-align: center;
+   width: 90%;
+   height: 50px;
+   border: none;
+   background-color: rgb(230, 230, 230);
+   border-radius: 7px 0 0 7px;
+}
+input:focus {
+   outline: none;
+}
+
+.select {
+   width: 90%;
+   text-align: right;
+   padding: 20px 0;
+}
+.select select {
+   padding: 0 10px;
+   width: 180px;
+   height: 40px;
+   border: none;
+   border-radius: 10px;
+   background-color: rgb(241, 241, 241);
+   text-align: center;
+   font-size: 0.9rem;
+}
+
+button.insertButton {
+   width: 50px;
+   height: 50px;
+   border: none;
+   background-color: rgb(211, 183, 183);
+   color: white;
+   border-radius: 0 7px 7px 0;
+   transition: background-color 0.5s ease;
+}
+button.insertButton:hover {
+   background-color: rgb(141, 118, 118);
+   color: white;
+}
+@media all and (max-width: 719px) {
+   .select {
+      display: none;
+   }
+}
